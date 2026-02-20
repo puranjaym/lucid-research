@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Voice AI Strategy Deck 2026 (Expanded)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg-cream: #f7f3e8;
+            --text-olive: #747c70;
+            --accent-terracotta: #c37a67;
+            --secondary-sage: #a0a088;
+            --warm-sand: #dec2af;
+            --chart-grid: #e5e0d4;
+            --dark-border: #dcd7c8;
+        }
+
+        body {
+            background-color: #2c2c2c;
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* Slide Common Styles */
+        .slide {
+            width: 95vw;
+            max-width: 1280px;
+            min-height: 720px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            background-color: var(--bg-cream);
+            color: var(--text-olive);
+            padding: 40px 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1280px) {
+            .slide {
+                aspect-ratio: auto;
+                min-height: auto;
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 0;
+                gap: 20px;
+            }
+
+            .slide {
+                width: 100vw;
+                padding: 24px;
+                box-shadow: none;
+                margin-bottom: 10px;
+            }
+
+            .col-divider {
+                border-right: none;
+                border-bottom: 1px solid var(--dark-border);
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+
+        .serif-text {
+            font-family: 'Noto Serif', serif;
+        }
+
+        .header-border {
+            border-bottom: 1px solid var(--dark-border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        @media (max-width: 768px) {
+            .header-border {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        .section-tag {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--secondary-sage);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Comparison Tables & Grids */
+        .strategy-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .strategy-table th {
+            text-align: left;
+            border-bottom: 2px solid var(--text-olive);
+            padding: 10px 5px;
+            font-family: 'Nunito', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+
+        .strategy-table td {
+            border-bottom: 1px solid var(--secondary-sage);
+            padding: 12px 5px;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .strategy-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Custom Box Styles */
+        .insight-box {
+            background-color: rgba(160, 160, 136, 0.1);
+            border-left: 4px solid var(--text-olive);
+            padding: 20px;
+        }
+
+        .highlight-box {
+            background-color: var(--text-olive);
+            color: var(--bg-cream);
+            padding: 20px;
+        }
+
+        .highlight-box h3 {
+            color: var(--warm-sand);
+        }
+
+        /* Architecture Blocks */
+        .tech-block {
+            border: 1px solid var(--secondary-sage);
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--text-olive);
+            border-radius: 4px;
+        }
+
+        .tech-layer-label {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--secondary-sage);
+            border-right: 1px solid var(--secondary-sage);
+            padding-left: 10px;
+        }
+
+        /* Slide Numbers */
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.8rem;
+            color: var(--secondary-sage);
+            font-family: 'Noto Serif', serif;
+            font-weight: 600;
+            z-index: 50;
+        }
+
+        @media (max-width: 768px) {
+            .slide-number {
+                bottom: 15px;
+                right: 15px;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Image Overlays */
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        /* Readability Improvements */
+        p.serif-text {
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        ul li p.serif-text {
+            font-size: 0.95rem;
+        }
+
+        .strategy-table td,
+        .strategy-table th {
+            padding: 14px 8px;
+        }
+
+        /* Grid Utilities */
+        .col-divider {
+            border-right: 1px solid var(--dark-border);
+        }
+
+        .sidebar-callout {
+            background-color: #2d362e;
+            /* Darker green for higher contrast */
+            color: #f7f3e8;
+            /* Cream text */
+            padding: 18px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            position: relative;
+            line-height: 1.5;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-callout::before {
+            content: "STRATEGIC PRO-TIP";
+            display: block;
+            font-size: 0.6rem;
+            font-weight: 900;
+            color: var(--warm-sand);
+            margin-bottom: 5px;
+            letter-spacing: 0.1em;
+        }
+
+        /* Print Optimization */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            body {
+                background-color: white;
+                padding: 0;
+                gap: 0;
+            }
+
+            .slide {
+                width: 100vw;
+                height: 100vh;
+                max-width: none;
+                min-height: none;
+                margin: 0;
+                padding: 40px 60px;
+                box-shadow: none;
+                page-break-after: always;
+                break-after: page;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Adjust chart visibility for print */
+            canvas {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide" id="slide1">
+        <img src="file:///Users/Puranjay/.gemini/antigravity/brain/990e0cb2-5216-4afc-a714-43210bd4410c/voice_ai_cover_slide_1771235877284.png"
+            class="slide-image" style="opacity: 0.5; mix-blend-mode: normal;">
+        <div class="cover-content items-center text-center">
+            <span class="section-tag" style="font-size: 1rem; color: var(--accent-terracotta);">Lucid Monk Strategic
+                Analysis</span>
+            <h1 class="text-6xl text-[#747c70] mt-4 mb-2 font-black tracking-tight">The Voice of India</h1>
+            <h2 class="text-3xl serif-text italic text-[#000000] font-light">From Frontier to Frugal: The Proximity
+                Revolution</h2>
+            <div class="w-24 h-1 bg-[#c37a67] my-12"></div>
+            <div class="flex gap-12 text-sm font-bold uppercase tracking-widest text-[#747c70]">
+                <span>Market Strategy</span>
+                <span>•</span>
+                <span>Innovation Roadmap</span>
+                <span>•</span>
+                <span>Confidential</span>
+            </div>
+        </div>
+        <div class="slide-number">1 / 20</div>
+    </div>
+
+    <!-- SLIDE 2: EXECUTIVE SUMMARY -->
+    <div class="slide" id="slide2">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Executive Summary</span>
+                <h1 class="text-4xl text-[#747c70] leading-tight">
+                    Voice is the <span class="text-[#c37a67]">"Access Key"</span> to unlocking India's $5 Trillion
+                    transactional economy.
+                </h1>
+            </div>
+            <div class="hidden md:block w-1/4 text-right">
+                <p class="serif-text text-sm italic text-[#a0a088]">February 2026 Strategy Report</p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 h-full">
+            <div class="col-span-1 flex flex-col justify-center pr-0 md:pr-6 md:col-divider">
+                <h3 class="text-xl mb-4 text-[#747c70]">The "Voice-First" Thesis</h3>
+                <p class="serif-text text-lg leading-relaxed mb-6">
+                    Voice bypasses the literacy barrier, bringing the next billion users into the transactional loop.
+                    This is not merely a UI change; it is an <strong>economic unblocking</strong>.
+                </p>
+                <div class="insight-box mt-4">
+                    <p class="text-sm font-bold text-[#c37a67] mb-1">STRATEGIC PIVOT</p>
+                    <p class="text-sm">Shift from Global LLMs (OpenAI) to Indigenous Models (Sarvam/Bhashini) to solve
+                        for <strong>Cost & Accuracy</strong>.</p>
+                </div>
+            </div>
+
+            <div class="col-span-1 pl-4 pr-6 col-divider">
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-6 text-[#a0a088]">Macro Potential (2030)</h4>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <div class="mt-1"><i data-lucide="trending-up" class="text-[#c37a67]"></i></div>
+                        <div>
+                            <h5 class="font-bold text-[#747c70]">28.5% CAGR</h5>
+                            <p class="text-sm serif-text mt-1">Outpacing global averages due to "need-based" adoption in
+                                data-poor cohorts.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="mt-1"><i data-lucide="unlock" class="text-[#c37a67]"></i></div>
+                        <div>
+                            <h5 class="font-bold text-[#747c70]">$20 Billion+</h5>
+                            <p class="text-sm serif-text mt-1">Economic surplus created in BFSI, Healthcare, and Retail
+                                via inclusion.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="mt-1"><i data-lucide="shield-check" class="text-[#c37a67]"></i></div>
+                        <div>
+                            <h5 class="font-bold text-[#747c70]">Sovereignty</h5>
+                            <p class="text-sm serif-text mt-1">Localized data residency & low-latency edge compute as
+                                the final moat.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-callout mt-4">
+                    <p>India is leapfrogging the "Desktop Age" directly to a "Voice-Ambient" ecosystem powered by smart
+                        regional nodes.</p>
+                </div>
+            </div>
+
+            <div class="col-span-1 pl-4 flex flex-col justify-center space-y-8">
+                <div class="text-center">
+                    <p class="text-6xl font-serif font-bold text-[#c37a67]">$4.5B</p>
+                    <p class="text-sm uppercase tracking-widest font-bold mt-2">Aggregated Opportunity (2030)</p>
+                </div>
+                <div class="w-12 h-1 bg-[#dcd7c8] mx-auto"></div>
+                <div class="text-center">
+                    <p class="text-6xl font-serif font-bold text-[#747c70]">10x</p>
+                    <p class="text-sm uppercase tracking-widest font-bold mt-2">Efficiency Gain in Public Good</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">2 / 20</div>
+    </div>
+
+    <!-- SLIDE 3: MACRO CONTEXT -->
+    <div class="slide" id="slide3">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Macro Context</span>
+                <h2 class="text-3xl text-[#747c70]">Why Voice Wins: The "Digital Bharat" Structural Drivers.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 h-full pb-8">
+            <div class="col-span-1 p-6 bg-white border border-[#dcd7c8] flex flex-col justify-center">
+                <i data-lucide="languages" class="w-12 h-12 text-[#c37a67] mb-4"></i>
+                <h4 class="font-bold text-lg text-[#747c70] mb-2">Linguistic Fragmentation</h4>
+                <p class="text-sm serif-text">India has 22 official languages and 400+ dialects. English keyboards are
+                    unnatural for 90% of the population, making typing a "literacy tax."</p>
+            </div>
+            <div class="col-span-1 p-6 bg-white border border-[#dcd7c8] flex flex-col justify-center">
+                <i data-lucide="smartphone" class="w-12 h-12 text-[#c37a67] mb-4"></i>
+                <h4 class="font-bold text-lg text-[#747c70] mb-2">Hardware Readiness</h4>
+                <p class="text-sm serif-text">1.14 Billion mobile subscribers and 700M+ smartphones. The rail for Voice
+                    AI is already in the consumer's pocket; data costs are the lowest globally.</p>
+            </div>
+            <div class="col-span-1 p-6 bg-white border border-[#dcd7c8] flex flex-col justify-center relative">
+                <i data-lucide="heart-handshake" class="w-12 h-12 text-[#c37a67] mb-4"></i>
+                <h4 class="font-bold text-lg text-[#747c70] mb-2">The Trust Premium</h4>
+                <p class="text-sm serif-text">In Tier 2/3 cities, sterile app interfaces breed suspicion. A voice agent
+                    speaking a local dialect feels "guided," increasing conversions by 40%.</p>
+                <div class="sidebar-callout mt-4 !text-[0.65rem] !p-3">
+                    <p><strong>Insight:</strong> Context is the new capital. Models that "understand" India win over
+                        models that "calculate" it.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">3 / 20</div>
+    </div>
+
+    <!-- SLIDE 4: MARKET VELOCITY -->
+    <div class="slide" id="slide4">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Market Velocity</span>
+                <h2 class="text-3xl text-[#747c70]">Aggregated Opportunity (2025-2030): A $4.57B Frontier.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-full pb-10">
+            <div class="col-span-1 md:col-span-7 flex flex-col">
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-4 text-[#a0a088]">Market Sizing by Segment
+                    (USD Millions)</h4>
+                <div class="relative w-full bg-[#fcfbf7] border border-[#e5e0d4] p-6 h-[400px]">
+                    <canvas id="marketChartExpanded"></canvas>
+                </div>
+            </div>
+
+            <div class="col-span-5 pl-4 flex flex-col justify-center">
+                <h3 class="text-lg font-bold mb-4 text-[#c37a67]">CAGR Leaders</h3>
+                <table class="strategy-table mb-8">
+                    <thead>
+                        <tr>
+                            <th>Segment</th>
+                            <th>2024 Value</th>
+                            <th>2030 Proj.</th>
+                            <th>CAGR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Voice Assistants</td>
+                            <td>$153.0 M</td>
+                            <td class="font-bold">$957.6 M</td>
+                            <td class="text-[#c37a67] font-bold">35.7%</td>
+                        </tr>
+                        <tr>
+                            <td>AI Voice Cloning</td>
+                            <td>$96.8 M</td>
+                            <td class="font-bold">$659.8 M</td>
+                            <td class="text-[#747c70] font-bold">31.5%</td>
+                        </tr>
+                        <tr>
+                            <td>Conversational AI</td>
+                            <td>$455.4 M</td>
+                            <td class="font-bold">$1,846 M</td>
+                            <td>26.3%</td>
+                        </tr>
+                        <tr>
+                            <td>Voice Recognition</td>
+                            <td>$322.0 M</td>
+                            <td class="font-bold">$1,106 M</td>
+                            <td>19.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="sidebar-callout">
+                    <p><strong>KEY INSIGHT:</strong> In-App Voice Assistants are the fastest growing segment, driven by
+                        BFSI (Collections) and E-comm (Vernacular Search).</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">4 / 20</div>
+    </div>
+
+    <!-- SLIDE 5: STRATEGIC TRAJECTORY -->
+    <div class="slide" id="slide5">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Strategic Trajectory</span>
+                <h2 class="text-3xl text-[#747c70]">The Value Waterfall: Evolution of Revenue.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-full pb-8">
+            <div class="p-6 bg-[#fcfbf7] border-t-4 border-[#a0a088] flex flex-col">
+                <h4 class="text-sm font-bold text-[#a0a088] uppercase mb-4">Phase 1: Efficiency (2024-27)</h4>
+                <h3 class="text-lg font-bold text-[#747c70] mb-4">Call Deflection</h3>
+                <p class="text-sm serif-text flex-grow">Replacing human agents in Tier-1 support. Cost reduction from
+                    ₹20/min to ₹0.02/min.</p>
+                <div class="mt-4 pt-4 border-t border-[#dcd7c8]">
+                    <span class="text-[10px] font-bold uppercase text-[#a0a088]">Primary Sectors</span>
+                    <p class="text-xs font-bold">BFSI & Telecom</p>
+                </div>
+            </div>
+
+            <div class="p-6 bg-white border-t-4 border-[#c37a67] shadow-lg flex flex-col relative z-10 scale-105">
+                <div
+                    class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#c37a67] text-white px-3 py-1 text-[10px] font-bold uppercase rounded-full">
+                    Current State</div>
+                <h4 class="text-sm font-bold text-[#c37a67] uppercase mb-4">Phase 2: Transaction (2027-30)</h4>
+                <h3 class="text-lg font-bold text-[#747c70] mb-4">Voice Commerce</h3>
+                <p class="text-sm serif-text flex-grow">Revenue growth via new users. Voice-activated UPI payments and
+                    vernacular shopping catalogs.</p>
+                <div class="mt-4 pt-4 border-t border-[#dcd7c8]">
+                    <span class="text-[10px] font-bold uppercase text-[#c37a67]">Primary Sectors</span>
+                    <p class="text-xs font-bold">Retail & Agri-Tech</p>
+                </div>
+            </div>
+
+            <div class="p-6 bg-[#fcfbf7] border-t-4 border-[#747c70] flex flex-col">
+                <h4 class="text-sm font-bold text-[#747c70] uppercase mb-4">Phase 3: Platform (2030+)</h4>
+                <h3 class="text-lg font-bold text-[#747c70] mb-4">Infrastructure Rent</h3>
+                <p class="text-sm serif-text flex-grow">Sovereign Models exported to Global South. Monetization via API
+                    calls and data delivery networks.</p>
+                <div class="mt-4 pt-4 border-t border-[#dcd7c8]">
+                    <span class="text-[10px] font-bold uppercase text-[#747c70]">Primary Sectors</span>
+                    <p class="text-xs font-bold">Global SaaS & DPI</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">5 / 20</div>
+    </div>
+
+    <!-- SLIDE 6: TECHNOLOGICAL DIVIDE -->
+    <div class="slide" id="slide6">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Technological Divide</span>
+                <h2 class="text-3xl text-[#747c70]">The "Voice of India" Benchmark Crisis.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 h-full pb-8">
+            <div class="flex flex-col">
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-6 text-[#747c70]">The "OpenAI Gap"</h4>
+                <p class="mb-4 text-sm serif-text">In Feb 2026, benchmarks revealed that global models (GPT-4o) trail
+                    indigenous models (Sarvam Saaras) by over <strong>50 percentage points</strong> in accuracy for
+                    Dravidian languages.</p>
+
+                <div class="bg-[#f0ebd9] p-4 rounded-sm mb-6">
+                    <h5 class="text-xs font-bold uppercase mb-2 text-[#747c70]">Root Causes:</h5>
+                    <ul class="text-xs space-y-2 serif-text">
+                        <li>• <strong>Code-Mixing:</strong> Hinglish/Tanglish confuses global parcers.</li>
+                        <li>• <strong>Dialect Blindness:</strong> Global models view "Hindi" as a monolith; Local models
+                            understand 40+ variations.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 border border-[#dcd7c8] shadow-sm rounded-sm">
+                    <h5 class="text-center text-xs font-bold uppercase mb-4 text-[#a0a088]">Word Error Rate (Lower is
+                        Better)</h5>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 font-bold"><span>Hindi (Indo-Aryan)</span>
+                            </div>
+                            <div class="relative h-6 bg-[#f0ebd9] w-full flex">
+                                <div class="h-full bg-[#747c70] text-white text-xs flex items-center pl-2"
+                                    style="width: 25%">Sarvam (6%)</div>
+                                <div class="h-full bg-[#c37a67] text-white text-xs flex items-center pl-2"
+                                    style="width: 50%; opacity: 0.8">GPT-4o (11%)</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 font-bold"><span>Tamil (Dravidian)</span>
+                            </div>
+                            <div class="relative h-6 bg-[#f0ebd9] w-full flex">
+                                <div class="h-full bg-[#747c70] text-white text-xs flex items-center pl-2"
+                                    style="width: 40%">Sarvam (15%)</div>
+                                <div class="h-full bg-[#c37a67] text-white text-xs flex items-center pl-2"
+                                    style="width: 90%; opacity: 0.8">GPT-4o (35%)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col pl-6 col-divider border-l border-[#dcd7c8] justify-center">
+                <div class="sidebar-callout !bg-[#c37a67] mb-6">
+                    <p><strong>MOAT:</strong> The advantage for indigenous players isn't just "training data"—it's the
+                        <strong>Cultural Tokenizer</strong> that understands the intent behind mixed-language speech.
+                    </p>
+                </div>
+                <div class="bg-[#2c2c2c] p-6 text-white rounded-sm">
+                    <h5 class="text-xs font-bold uppercase text-[#warm-sand] mb-2">Technical Verdict</h5>
+                    <p class="text-xs serif-text">Global APIs are insufficient for mass-market Bharat. Sovereignty is a
+                        technical requirement, not just a policy one.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">6 / 20</div>
+    </div>
+
+    <!-- SLIDE 7: ECONOMICS -->
+    <div class="slide" id="slide7">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Economics</span>
+                <h2 class="text-3xl text-[#747c70]">The "Tokenization Tax": A Hidden Cost Barrier.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-full pb-8">
+            <div class="col-span-1 md:col-span-7">
+                <div class="bg-[#747c70] text-white p-8 rounded-sm mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-[#warm-sand]">5x Cost Multiplier</h3>
+                    <p class="serif-text text-sm leading-relaxed">Global tokenizers split Indic words into multiple
+                        fragments. A single Hindi sentence consumes 5x more tokens than English, exploding inference
+                        costs.</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="border border-[#dcd7c8] p-4 bg-white">
+                        <span class="text-[10px] font-bold uppercase text-[#a0a088]">Scenario: Service Chatbot</span>
+                        <p class="text-xs mt-2">10k msgs/day</p>
+                        <div class="mt-4">
+                            <p class="text-sm font-bold">$16,425 / yr</p>
+                            <p class="text-[10px] text-[#747c70]">English Bot (GPT-4)</p>
+                        </div>
+                    </div>
+                    <div class="border border-[#c37a67] p-4 bg-white">
+                        <span class="text-[10px] font-bold uppercase text-[#c37a67]">Scenario: Service Chatbot</span>
+                        <p class="text-xs mt-2">10k msgs/day</p>
+                        <div class="mt-4">
+                            <p class="text-sm font-bold text-[#c37a67]">$82,125 / yr</p>
+                            <p class="text-[10px] text-[#747c70]">Indic Bot (GPT-4)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-5 flex flex-col justify-center pl-6 md:col-divider md:border-l">
+                <h4 class="text-xs font-bold uppercase mb-4 text-[#a0a088]">Tokens per word (Efficiency)</h4>
+                <div class="flex items-end justify-around h-48 border-b border-[#a0a088] pb-2 mb-6">
+                    <div class="w-16 bg-[#a0a088] h-1/4 flex flex-col justify-end items-center p-2"><span
+                            class="text-white font-bold mb-1">1.0x</span><span
+                            class="text-[8px] text-white">English</span></div>
+                    <div class="w-16 bg-[#c37a67] h-full flex flex-col justify-end items-center p-2"><span
+                            class="text-white font-bold mb-1">5.2x</span><span class="text-[8px] text-white">Indic
+                            (GPT)</span></div>
+                    <div class="w-16 bg-[#747c70] h-[30%] flex flex-col justify-end items-center p-2"><span
+                            class="text-white font-bold mb-1">1.2x</span><span
+                            class="text-[8px] text-white">Sovereign</span></div>
+                </div>
+                <div class="sidebar-callout mt-4">
+                    <p>Sovereign tokenizers are the "Sachetization" engine of AI—making intelligence affordable for the
+                        ₹10 ARPU user.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">7 / 20</div>
+    </div>
+
+    <!-- SLIDE 8: CONSUMER BEHAVIOR -->
+    <div class="slide" id="slide8">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Consumer Behavior</span>
+                <h2 class="text-3xl text-[#747c70]">Why Voice? Solving the "Digital Friction" of Typing.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 h-full pb-8">
+            <div class="flex flex-col justify-center pr-6">
+                <h3 class="text-xl font-bold text-[#c37a67] mb-6">The "Next Billion" Persona</h3>
+                <ul class="space-y-6">
+                    <li class="flex items-start">
+                        <div class="bg-[#e8e4d8] p-3 rounded-full mr-4"><i data-lucide="keyboard"
+                                class="text-[#747c70]"></i></div>
+                        <div>
+                            <h4 class="font-bold text-[#747c70]">Typing Friction</h4>
+                            <p class="serif-text text-sm">Vernacular scripts are complex on mobile. Speaking is
+                                <strong>3x faster</strong> and more natural.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="bg-[#e8e4d8] p-3 rounded-full mr-4"><i data-lucide="users"
+                                class="text-[#747c70]"></i></div>
+                        <div>
+                            <h4 class="font-bold text-[#747c70]">Trust Factor</h4>
+                            <p class="serif-text text-sm">Local dialects increase transaction trust by 40% in Tier 2/3
+                                cities.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="sidebar-callout mt-12 bg-[#dec2af]/20 border border-[#dec2af]/40 !text-[#747c70]">
+                    <p><strong>Insight:</strong> For the rural user, the voice agent is a "Digital Guide," not just a
+                        search box.</p>
+                </div>
+            </div>
+
+            <div class="bg-[#fcfbf7] border border-[#dcd7c8] p-8 flex flex-col justify-center items-center">
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-8 text-[#a0a088]">Preferred Input Mode (Tier
+                    2/3 Cities)</h4>
+
+                <!-- Contextual Image Representation -->
+                <div class="relative w-full h-64 overflow-hidden mb-6 rounded-lg border border-[#dcd7c8]">
+                    <img src="file:///Users/Puranjay/.gemini/antigravity/brain/990e0cb2-5216-4afc-a714-43210bd4410c/indian_context_voice_ai_1771235894266.png"
+                        class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <p class="text-xs font-bold uppercase tracking-widest">In-Context Utility</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-8 w-full">
+                    <div class="text-center">
+                        <span class="block text-3xl font-bold text-[#c37a67]">68%</span>
+                        <span class="text-xs uppercase font-bold text-[#747c70]">Voice / Audio</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-3xl font-bold text-[#a0a088]">32%</span>
+                        <span class="text-xs uppercase font-bold text-[#747c70]">Text / Typing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">8 / 20</div>
+    </div>
+
+    <!-- SLIDE 9: MARKET MAP -->
+    <div class="slide" id="slide9">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Market Map</span>
+                <h2 class="text-3xl text-[#747c70]">The India Voice AI Stack: A Three-Tiered Ecosystem.</h2>
+            </div>
+        </header>
+
+        <div class="flex flex-col md:flex-row h-full gap-4 pb-8">
+            <!-- Vertical Label (Hidden on small screens) -->
+            <div class="hidden md:flex w-12 flex-col justify-between py-10">
+                <div class="tech-layer-label h-1/3">Applications</div>
+                <div class="tech-layer-label h-1/3">Models</div>
+                <div class="tech-layer-label h-1/3">Compute</div>
+            </div>
+
+            <!-- Content Blocks -->
+            <div class="flex-grow flex flex-col justify-between gap-6 md:gap-4">
+
+                <!-- App Layer -->
+                <div class="min-h-[120px] md:h-1/3 bg-[#fcfbf7] p-4 border border-[#e5e0d4] rounded-lg">
+                    <h4 class="text-xs md:text-sm font-bold uppercase text-[#c37a67] mb-3 md:mb-2 text-right">Vertical
+                        SaaS & Apps</h4>
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                        <div class="tech-block">Halo</div>
+                        <div class="tech-block">Dubverse</div>
+                        <div class="tech-block">Yellow.ai</div>
+                        <div class="tech-block">Skit.ai</div>
+                    </div>
+                </div>
+
+                <!-- Model Layer -->
+                <div class="min-h-[120px] md:h-1/3 bg-[#f0ebd9] p-4 border border-[#e5e0d4] rounded-lg relative">
+                    <h4 class="text-xs md:text-sm font-bold uppercase text-[#c37a67] mb-3 md:mb-2 text-right">Sovereign
+                        Models</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                        <div class="tech-block">Sarvam AI</div>
+                        <div class="tech-block">Gnani.ai</div>
+                        <div class="tech-block">Krutrim</div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure Layer -->
+                <div class="min-h-[120px] md:h-1/3 bg-[#dcd7c8] p-4 border border-[#b8b3a8] rounded-lg">
+                    <h4 class="text-xs md:text-sm font-bold uppercase text-[#c37a67] mb-3 md:mb-2 text-right">Compute &
+                        Edge Infrastructure</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                        <div class="tech-block">Jio (Nvidia)</div>
+                        <div class="tech-block">Yotta</div>
+                        <div class="tech-block">E2E Networks</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="slide-number">9 / 20</div>
+    </div>
+
+    <!-- SLIDE 10: COMPETITIVE LANDSCAPE (Tier 1) -->
+    <div class="slide" id="slide10">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Competitive Landscape</span>
+                <h2 class="text-3xl text-[#747c70]">Tier 1: The Sovereign Champions.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 h-full pb-8">
+            <div class="bg-white p-6 border-b-4 border-[#747c70] flex flex-col">
+                <h3 class="text-xl font-bold text-[#c37a67] mb-4">Sarvam AI</h3>
+                <ul class="text-xs space-y-3 serif-text flex-grow">
+                    <li>• <strong>Position:</strong> The "OpenAI of India." Full-stack sovereignty.</li>
+                    <li>• <strong>Product:</strong> Saaras (ASR) & Sarvam-2B (Edge LLM).</li>
+                    <li>• <strong>Moat:</strong> Microsoft partnership for distribution & enterprise scale.</li>
+                </ul>
+                <div class="mt-4 text-[10px] font-bold text-[#a0a088]">Funding: $53M (Series A)</div>
+            </div>
+
+            <div class="bg-white p-6 border-b-4 border-[#747c70] flex flex-col">
+                <h3 class="text-xl font-bold text-[#c37a67] mb-4">Gnani.ai</h3>
+                <ul class="text-xs space-y-3 serif-text flex-grow">
+                    <li>• <strong>Position:</strong> Enterprise Voice Specialist.</li>
+                    <li>• <strong>Product:</strong> armour365 (Voice Biometrics) & Assistants.</li>
+                    <li>• <strong>Moat:</strong> Deep vertical integration in Banking & Automotive (Samsung backed).
+                    </li>
+                </ul>
+                <div class="mt-4 text-[10px] font-bold text-[#a0a088]">Focus: B2B Solutions</div>
+            </div>
+
+            <div class="bg-white p-6 border-b-4 border-[#747c70] flex flex-col">
+                <h3 class="text-xl font-bold text-[#c37a67] mb-4">Krutrim (Ola)</h3>
+                <ul class="text-xs space-y-3 serif-text flex-grow">
+                    <li>• <strong>Position:</strong> India's first AI Unicorn ($1B+).</li>
+                    <li>• <strong>Product:</strong> Krutrim LLM & Cloud infra.</li>
+                    <li>• <strong>Moat:</strong> Vertical integration from Silicon (Chips) to App ecosystem.</li>
+                </ul>
+                <div class="mt-4 text-[10px] font-bold text-[#a0a088]">Proprietary Data: Ola Logs</div>
+            </div>
+        </div>
+        <div class="slide-number">10 / 20</div>
+    </div>
+
+    <!-- SLIDE 11: COMPETITIVE LANDSCAPE (Tier 2 & 3) -->
+    <div class="slide" id="slide11">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Competitive Landscape</span>
+                <h2 class="text-3xl text-[#747c70]">Tier 2 & 3: Global Hyperscalers & Vertical Specialists.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full pb-8">
+            <div class="space-y-6">
+                <div class="p-6 bg-[#fcfbf7] border-l-4 border-[#a0a088]">
+                    <h4 class="font-bold text-[#747c70]">Global Hyperscalers (Google, Azure, AWS)</h4>
+                    <p class="text-xs serif-text mt-2">Primary role as "Compute Rails." Google Gemini (1.5 Flash) is
+                        winning on cost-efficiency for large-scale summarization, while Azure remains the preferred
+                        "Secure Port" for BFSI.</p>
+                </div>
+                <div class="p-6 bg-[#fcfbf7] border-l-4 border-[#a0a088]">
+                    <h4 class="font-bold text-[#747c70]">Vertical Specialists (Skit.ai, Yellow.ai)</h4>
+                    <p class="text-xs serif-text mt-2">Dominating the "Application Layer." Skit.ai has captured 40% of
+                        the Automated Debt Collections market in India through superior dialect-handling in telephony.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-center pl-6 md:col-divider md:border-l">
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-6 text-[#a0a088]">The Tiering Shift</h4>
+                <div class="bg-white p-6 border border-[#dcd7c8] relative">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-[#c37a67] flex items-center justify-center text-white text-xs font-bold">
+                            1</div>
+                        <p class="text-xs">Global Models (Gemini/GPT) for Reasoning</p>
+                    </div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-[#747c70] flex items-center justify-center text-white text-xs font-bold">
+                            2</div>
+                        <p class="text-xs">Local Models (Sarvam/Bhashini) for Accuracy</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-[#a0a088] flex items-center justify-center text-white text-xs font-bold">
+                            3</div>
+                        <p class="text-xs">Edge Nodes (Jio/Airtel) for Delivery</p>
+                    </div>
+                </div>
+                <div class="sidebar-callout mt-6">
+                    <p><strong>Winning Move:</strong> Don't build the model; build the <strong>Orchestration
+                            Layer</strong> that picks the cheapest, fastest model for the user's specific dialect.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">11 / 20</div>
+    </div>
+
+    <!-- SLIDE 12: POLICY FRAMEWORK -->
+    <div class="slide" id="slide12">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Policy Framework</span>
+                <h2 class="text-3xl text-[#747c70]">The State as Enabler: IndiaAI Mission (₹10,372 Cr.).</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-full pb-8">
+            <div class="p-4 bg-white border border-[#dcd7c8] text-center">
+                <i data-lucide="cpu" class="w-8 h-8 mx-auto mb-3 text-[#c37a67]"></i>
+                <h4 class="font-bold text-sm text-[#747c70]">AI Compute</h4>
+                <p class="text-[10px] serif-text">Subsidized GPU access for startups via 10k+ H100 GPU clusters.</p>
+            </div>
+            <div class="p-4 bg-white border border-[#dcd7c8] text-center">
+                <i data-lucide="database" class="w-8 h-8 mx-auto mb-3 text-[#c37a67]"></i>
+                <h4 class="font-bold text-sm text-[#747c70]">IndiaAI Datasets</h4>
+                <p class="text-[10px] serif-text">Non-personal data sets opened to train sovereign models.</p>
+            </div>
+            <div class="p-4 bg-white border border-[#dcd7c8] text-center">
+                <i data-lucide="graduation-cap" class="w-8 h-8 mx-auto mb-3 text-[#c37a67]"></i>
+                <h4 class="font-bold text-sm text-[#747c70]">Innovation Lab</h4>
+                <p class="text-[10px] serif-text">Support for Multi-modal (Voice/Vision) Indic models.</p>
+            </div>
+            <div class="p-4 bg-white border border-[#dcd7c8] text-center">
+                <i data-lucide="shield-check" class="w-8 h-8 mx-auto mb-3 text-[#c37a67]"></i>
+                <h4 class="font-bold text-sm text-[#747c70]">Safe AI</h4>
+                <p class="text-[10px] serif-text">Frameworks for ethical deployment and bias mitigation.</p>
+            </div>
+
+            <div class="col-span-1 md:col-span-4 bg-[#747c70] p-6 text-white rounded-sm mt-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <h3 class="text-xl font-bold text-[#warm-sand]">Public Purpose vs. Private Profit</h3>
+                        <p class="text-sm serif-text italic">"India does not want to just be a consumer of AI; we want
+                            to build the AI Sovereign Stack for the Global South." — MEITY 2026 Strategy</p>
+                    </div>
+                    <div class="text-center bg-[#c37a67] p-4 rounded-lg">
+                        <span class="block text-2xl font-bold">₹10K Cr+</span>
+                        <span class="text-[10px] uppercase font-bold">Total Outlay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">12 / 20</div>
+    </div>
+
+    <!-- SLIDE 13: INFRASTRUCTURE -->
+    <div class="slide" id="slide13">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Infrastructure</span>
+                <h2 class="text-3xl text-[#747c70]">Bhashini & Jio Shakti Cloud: The "Corner Store" Compute.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full pb-8">
+            <div class="space-y-6">
+                <div class="p-6 bg-white border border-[#dcd7c8] relative overflow-hidden">
+                    <div
+                        class="absolute right-0 top-0 bg-[#c37a67] text-white px-3 py-1 text-[8px] font-bold uppercase">
+                        Public Rail</div>
+                    <h4 class="font-bold text-lg text-[#747c70] mb-2">Bhashini (UPI for Language)</h4>
+                    <p class="text-sm serif-text">A decentralized ecosystem of tools and APIs for language translation
+                        and voice synthesis. Used by the Judiciary and Healthcare to serve non-English speakers.</p>
+                </div>
+                <div class="p-6 bg-white border border-[#dcd7c8] relative overflow-hidden">
+                    <div
+                        class="absolute right-0 top-0 bg-[#747c70] text-white px-3 py-1 text-[8px] font-bold uppercase">
+                        Private Rail</div>
+                    <h4 class="font-bold text-lg text-[#747c70] mb-2">Jio Shakti Cloud (The 1GW Giant)</h4>
+                    <p class="text-sm serif-text">Partnership with NVIDIA to build a massive AI compute cluster at the
+                        "Edge." Aiming to deliver AI as a low-cost utility in every Indian village.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-center bg-[#f0ebd9] p-8 rounded-sm">
+                <h4 class="text-sm font-bold uppercase text-[#747c70] mb-6">The Proximity Advantage</h4>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-[#dcd7c8] pb-2">
+                        <span class="text-xs">Latencey (Standard Cloud)</span>
+                        <span class="text-xs font-bold text-[#c37a67]">2000ms+</span>
+                    </div>
+                    <div class="flex justify-between border-b border-[#dcd7c8] pb-2">
+                        <span class="text-xs">Latency (Jio Edge Node)</span>
+                        <span class="text-xs font-bold text-[#747c70]">~100ms</span>
+                    </div>
+                    <div class="flex justify-between border-b border-[#dcd7c8] pb-2">
+                        <span class="text-xs">Token Cost (Throughput)</span>
+                        <span class="text-xs font-bold text-[#747c70]">-90% via Caching</span>
+                    </div>
+                </div>
+                <div class="sidebar-callout mt-8 !bg-[#747c70]">
+                    <p>When intelligence is closer to the user, the cost of "explaining" context drops to near zero.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">13 / 20</div>
+    </div>
+
+    <!-- SLIDE 14: SECTOR IMPACT (Commercial) -->
+    <div class="slide" id="slide14">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Sector Impact: Commercial</span>
+                <h2 class="text-3xl text-[#747c70]">BFSI & Retail: The Engine of Adoption.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full pb-8">
+            <div class="p-8 bg-white border border-[#dcd7c8]">
+                <h3 class="text-xl font-bold text-[#c37a67] mb-6">BFSI (The Collections Moat)</h3>
+                <p class="text-sm serif-text mb-6">Automated debt collections using voice agents that can negotiate in
+                    22 languages. Conversational AI reduces operational costs by <strong>35%</strong> while increasing
+                    recovery rates
+                    by <strong>20%</strong>.</p>
+                <div class="insight-box">
+                    <p class="text-xs">"The machine never gets tired and never loses its temper—essential for
+                        high-volume rural lending."</p>
+                </div>
+            </div>
+            <div class="p-8 bg-white border border-[#dcd7c8]">
+                <h3 class="text-xl font-bold text-[#c37a67] mb-6">Retail (Conversational Commerce)</h3>
+                <p class="text-sm serif-text mb-6">Vernacular shopping assistants for ONDC-enabled apps. Users can
+                    search for products, compare prices, and order via voice, bypassing complex UI menus.</p>
+                <div class="insight-box">
+                    <p class="text-xs">Voice search is growing 2x faster than text search in Bharat (Tier 2/3).</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">14 / 20</div>
+    </div>
+
+    <!-- SLIDE 15: CASE STUDY: UPI -->
+    <div class="slide" id="slide15">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Case Study: UPI</span>
+                <h2 class="text-3xl text-[#747c70]">"Hello! UPI": The 21.6 Billion Transaction Revolution.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-full pb-8">
+            <div class="col-span-1 md:col-span-6 flex flex-col justify-center">
+                <div class="bg-[#c37a67] text-white p-8 rounded-sm shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4">Voice-to-Value</h3>
+                    <p class="serif-text text-sm leading-relaxed mb-6">"Hello! UPI" allows users to make payments simply
+                        by speaking. By removing the need to navigate apps or read English prompts, it brings NPCI's
+                        2030 goal of 100 billion monthly transactions within reach.</p>
+                    <div class="flex gap-4">
+                        <div class="text-center"><span class="block text-2xl font-bold">2.5 Billion</span><span
+                                class="text-[10px] uppercase font-bold">Rural Users</span></div>
+                        <div class="w-[1px] bg-white opacity-40"></div>
+                        <div class="text-center"><span class="block text-2xl font-bold">40%</span><span
+                                class="text-[10px] uppercase font-bold">Conversion Uplift</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-6 flex flex-col justify-center pl-6">
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-6 text-[#a0a088]">How it works (The Stack)
+                </h4>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-6 h-6 rounded-full bg-[#747c70] flex items-center justify-center text-white text-[10px]">
+                            1</div>
+                        <p class="text-xs">User speaks command (e.g., "Pay 500 to Ramesh")</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-6 h-6 rounded-full bg-[#747c70] flex items-center justify-center text-white text-[10px]">
+                            2</div>
+                        <p class="text-xs">Bhashini converts Voice to Text (Indic-to-Indic)</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-6 h-6 rounded-full bg-[#747c70] flex items-center justify-center text-white text-[10px]">
+                            3</div>
+                        <p class="text-xs">UPI Rails execute the transaction API</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-6 h-6 rounded-full bg-[#747c70] flex items-center justify-center text-white text-[10px]">
+                            4</div>
+                        <p class="text-xs">Voice confirmation in local dialect</p>
+                    </div>
+                </div>
+                <div class="sidebar-callout mt-8">
+                    <p>The "Soundbox" was the first step. "Hello! UPI" is the destination. Total inclusion is the
+                        result.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">15 / 20</div>
+    </div>
+
+    <!-- SLIDE 16: SECTOR IMPACT (Public Good) -->
+    <div class="slide" id="slide16">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Sector Impact: Public Good</span>
+                <h2 class="text-3xl text-[#747c70]">Serving the Underserved: Healthcare & Agriculture.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full pb-8">
+            <div class="p-8 bg-white border border-[#dcd7c8]">
+                <h3 class="text-xl font-bold text-[#c37a67] mb-6">Healthcare (The Scribe Moat)</h3>
+                <p class="text-sm serif-text mb-6">Real-time medical scribing for rural health workers (ASHAs). Voice AI
+                    converts spoken consultations into structured diagnostic data, reducing admin time by 70%.</p>
+                <div class="insight-box">
+                    <p class="text-xs">"Bridging the doctor-to-patient ratio gap via intelligent assistants."</p>
+                </div>
+            </div>
+            <div class="p-8 bg-white border border-[#dcd7c8]">
+                <h3 class="text-xl font-bold text-[#c37a67] mb-6">Agriculture (The Knowledge Bridge)</h3>
+                <p class="text-sm serif-text mb-6">Kisan e-Mitra GPT: Providing real-time weather and crop intel via
+                    WhatsApp voice. Linking 100M+ farmers to government subsidies via voice-authenticated DBT.</p>
+                <div class="insight-box">
+                    <p class="text-xs">Converting complex policy documents into simple spoken advice.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">16 / 20</div>
+    </div>
+
+    <!-- SLIDE 17: REGULATORY LANDSCAPE -->
+    <div class="slide" id="slide17">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Regulatory</span>
+                <h2 class="text-3xl text-[#747c70]">Navigating Structural & Ethical Risks.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-full pb-8">
+            <div class="col-span-1 md:col-span-7">
+                <div class="space-y-4">
+                    <div class="p-6 bg-white border border-[#dcd7c8]">
+                        <h4 class="font-bold text-[#c37a67] mb-2">DPDP Act 2023 Compliance</h4>
+                        <p class="text-xs serif-text">Stringent requirements for user consent in voice data collection.
+                            "Right to Erasure" and data residency are technical non-negotiables.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-[#dcd7c8]">
+                        <h4 class="font-bold text-[#c37a67] mb-2">Biometric Security</h4>
+                        <p class="text-xs serif-text">The risk of AI-cloned voices for financial fraud. Requirement for
+                            robust "Proof of Liveness" in voice-activated banking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-5 flex flex-col justify-center pl-6 md:col-divider md:border-l">
+                <h4 class="text-xs font-bold uppercase text-[#a0a088] mb-4">Strategic Safeguards</h4>
+                <ul class="text-xs space-y-4">
+                    <li class="flex gap-2"><span>•</span> <strong>Privacy by Design:</strong> On-device processing to
+                        minimize cloud exposure.</li>
+                    <li class="flex gap-2"><span>•</span> <strong>Bias Audits:</strong> Regular testing for dialect
+                        representation and accuracy.</li>
+                </ul>
+                <div class="sidebar-callout mt-8">
+                    <p>Trust is a brittle asset. Compliance is the only way to scale the "Next Billion" users.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">17 / 20</div>
+    </div>
+
+    <!-- SLIDE 18: TECHNICAL ARCHITECTURE -->
+    <div class="slide" id="slide18">
+        <header class="header-border">
+            <div class="w-full md:w-3/4">
+                <span class="section-tag">Architecture</span>
+                <h2 class="text-3xl text-[#747c70]">The Edge AI Shift: Jio Edge + Sarvam On-Device Stack.</h2>
+            </div>
+        </header>
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-6 gap-4 h-full pb-20 items-center overflow-x-auto md:overflow-visible">
+            <div class="col-span-1 bg-[#fcfbf7] border-2 border-[#dcd7c8] p-4 text-center rounded-lg shadow-sm">
+                <h4 class="font-bold text-[#747c70]">1. Sarvam Edge</h4>
+                <p class="text-[10px] mt-2">Compact on-device LLM for 10 languages. Fully offline operation.</p>
+            </div>
+            <div class="text-center font-bold text-[#c37a67] text-2xl">→</div>
+            <div class="col-span-1 bg-[#747c70] border-2 border-[#747c70] p-4 text-center rounded-lg shadow-sm">
+                <h4 class="font-bold text-[#f7f3e8]">2. MDN Caching</h4>
+                <p class="text-[10px] mt-2 text-[#f7f3e8]">Static context cached at Jio regional edge nodes.</p>
+            </div>
+            <div class="text-center font-bold text-[#c37a67] text-2xl">→</div>
+            <div class="col-span-1 bg-[#fcfbf7] border-2 border-[#dcd7c8] p-4 text-center rounded-lg shadow-sm">
+                <h4 class="font-bold text-[#747c70]">3. Reasoning Hub</h4>
+                <p class="text-[10px] mt-2">Complex logic handled by Sovereign/Global models via API.</p>
+            </div>
+            <div class="text-center font-bold text-[#c37a67] text-2xl">→</div>
+            <div class="col-span-1 bg-[#c37a67] border-2 border-[#c37a67] p-4 text-center rounded-lg shadow-sm">
+                <h4 class="font-bold text-white">4. Output</h4>
+                <p class="text-[10px] mt-2 text-white">Millisecond-latency voice response in local dialect.</p>
+            </div>
+        </div>
+        <div class="sidebar-callout !bg-[#c37a67]/10 !text-[#747c70] border border-[#c37a67]/20 mt-6">
+            <h5 class="font-bold text-[#c37a67] mb-1 uppercase text-[0.6rem]">Proximity as a Service</h5>
+            <p class="text-xs">MDNs break the cycle of "re-reading" context. Treat intelligence as a delivery problem,
+                not just a compute one.</p>
+        </div>
+        <div class="slide-number">18 / 20</div>
+    </div>
+
+    <!-- SLIDE 19: STRATEGIC ROADMAP -->
+    <div class="slide" id="slide19">
+        <header class="header-border">
+            <div class="w-full md:w-3/4 text-center mx-auto">
+                <span class="section-tag">Strategic Roadmap</span>
+                <h2 class="text-4xl serif-text italic text-[#747c70]">"The Future is Closer": The Final Piece.</h2>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 h-full pb-8">
+            <div class="p-6 bg-white border border-[#dcd7c8] flex flex-col">
+                <h4 class="font-bold text-[#c37a67] mb-4 uppercase text-xs">1. Smart Inference (MDN)</h4>
+                <p class="text-sm serif-text mb-4">Just as Netflix caches movies, MDNs cache intelligence.
+                    <strong>Prompt Caching</strong> slashes token costs by 90% and enables < 500ms latency.</p>
+                        <i data-lucide="zap" class="mt-auto text-[#747c70] w-6 h-6"></i>
+            </div>
+            <div class="p-6 bg-white border border-[#dcd7c8] flex flex-col">
+                <h4 class="font-bold text-[#c37a67] mb-4 uppercase text-xs">2. Infrastructure War</h4>
+                <p class="text-sm serif-text mb-4">The battle isn't just models; it's the "Corner Store" compute.
+                    <strong>Seamless Compute</strong> between local Sarvam models and Jio Edge nodes is the end-game.
+                </p>
+                <i data-lucide="shield" class="mt-auto text-[#747c70] w-6 h-6"></i>
+            </div>
+            <div class="p-6 bg-[#747c70] text-white flex flex-col rounded-sm shadow-xl">
+                <h4 class="font-bold text-[#warm-sand] mb-4 uppercase text-xs">3. Invisible AI</h4>
+                <p class="text-sm serif-text mb-4">When intelligence is instant and free, it becomes "The New Content".
+                    Voice AI moves from a tool to the very fabric of the India Stack.</p>
+                <i data-lucide="sparkles" class="mt-auto text-[#warm-sand] w-6 h-6"></i>
+            </div>
+        </div>
+        <div class="slide-number">19 / 20</div>
+    </div>
+
+    <!-- SLIDE 20: THANK YOU -->
+    <div class="slide" id="slide20" style="background-color: var(--text-olive); color: var(--bg-cream);">
+        <div class="cover-content items-center text-center">
+            <h1 class="text-6xl text-[#c37a67] mb-4 font-black tracking-tight">Thank You for Reading !</h1>
+            <p class="text-xl serif-text italic text-[#a0a088] mb-12">All opinions expressed are personal.</p>
+            <div class="flex gap-8 justify-center mt-12 bg-white/5 p-8 border border-white/10 rounded-sm">
+                <div class="text-left">
+                    <p class="text-[10px] text-[#warm-sand] font-bold uppercase tracking-widest mb-2">Author</p>
+                    <p class="text-lg font-bold">Puranjay Mahapatra</p>
+                </div>
+                <div class="text-left border-l border-white/10 pl-8">
+                    <p class="text-[10px] text-[#warm-sand] font-bold uppercase tracking-widest mb-2">Connect</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/puranjay-mahapatra/" target="_blank"><i
+                                data-lucide="linkedin" class="w-5 h-5 cursor-pointer hover:text-[#c37a67]"></i></a>
+                        <a href="https://x.com/_puranjaym_" target="_blank"><i data-lucide="twitter"
+                                class="w-5 h-5 cursor-pointer hover:text-[#c37a67]"></i></a>
+                        <a href="https://puranjaym.com/" target="_blank"><i data-lucide="globe"
+                                class="w-5 h-5 cursor-pointer hover:text-[#c37a67]"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">20 / 20</div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            // Chart configuration for Slide 2
+            const ctx2El = document.getElementById('marketChart');
+            if (ctx2El) {
+                const ctx2 = ctx2El.getContext('2d');
+                Chart.defaults.font.family = "'Nunito', sans-serif";
+                Chart.defaults.color = '#747c70';
+
+                new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
+                        datasets: [
+                            {
+                                label: 'Conversational AI',
+                                data: [450, 580, 750, 980, 1300, 1800],
+                                backgroundColor: '#747c70',
+                                stack: 'Stack 0',
+                            },
+                            {
+                                label: 'Voice Cloning & Other',
+                                data: [120, 180, 260, 380, 550, 800],
+                                backgroundColor: '#c37a67',
+                                stack: 'Stack 0',
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom' },
+                            datalabels: { display: false }
+                        },
+                        scales: {
+                            x: { grid: { display: false } },
+                            y: {
+                                grid: { color: '#e5e0d4' },
+                                ticks: { callback: function (value) { return '$' + value + 'M'; } }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Initialize Expanded Market Chart (Slide 4)
+            const ctxExpandedEl = document.getElementById('marketChartExpanded');
+            if (ctxExpandedEl) {
+                const ctxExpanded = ctxExpandedEl.getContext('2d');
+                new Chart(ctxExpanded, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Conversational AI', 'Voice Recognition', 'Voice Assistants', 'Voice Cloning'],
+                        datasets: [
+                            {
+                                label: '2024 (USD M)',
+                                data: [455.4, 322.0, 153.0, 96.8],
+                                backgroundColor: '#a0a088',
+                                borderRadius: 4
+                            },
+                            {
+                                label: '2030 (USD M)',
+                                data: [1846.0, 1106.0, 957.6, 659.8],
+                                backgroundColor: '#c37a67',
+                                borderRadius: 4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom', labels: { font: { family: 'Inter', size: 10 } } },
+                            tooltip: { backgroundColor: '#747c70', titleFont: { family: 'Noto Serif' } }
+                        },
+                        scales: {
+                            y: { beginAtZero: true, grid: { color: '#e5e0d4' }, ticks: { font: { size: 10 } } },
+                            x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
